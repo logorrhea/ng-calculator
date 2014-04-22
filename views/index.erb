@@ -1,9 +1,41 @@
 <!doctype html>
-<html>
+<html ng-app="TestApp">
   <head>
     <title>ngCalculator</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/src/ng-calculator.js"></script>
+    <script type="text/javascript">
+    angular.module('TestApp', ['ngCalculator'])
+    .controller('TestController', function($scope) {
+      $scope.title = 'ngCalculator';
+    });
+    </script>
+    <style>
+    table.ngCalculator {
+      border-collapse: separate;
+      border-spacing: 10px;
+    }
+    table.ngCalculator td {
+      text-align: center;
+      vertical-align: middle;
+      height: 50px;
+      min-width: 50px;
+      color: #333;
+      cursor: pointer;
+      margin: 5px;
+      border: 1px solid #ccc;
+      -webkit-box-shadow: 3px 3px 2px 2px #ccc;
+      -moz-box-shadow:    3px 3px 2px 2px #ccc;
+      box-shadow:         3px 3px 2px 2px #ccc;
+    }
+    table.ngCalculator td:hover {
+      background-color: #7db9e8;
+    }
+    </style>
   </head>
-  <body ng-app>
-    <div ng-calculator></div>
+  <body ng-controller="TestController">
+    <h1>{{ title }}</h1>
+    <div ng-calculator>Calculator should be right here.</div>
   </body>
 </html>
